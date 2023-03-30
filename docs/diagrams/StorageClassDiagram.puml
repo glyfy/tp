@@ -11,7 +11,7 @@ Class "<<interface>>\nUserPrefsStorage" as UserPrefsStorage
 Class JsonUserPrefsStorage
 }
 
-Class "<<interface>>\nStorage" as StorageInterface
+Class "<<interface>>\nStorage" as Storage
 Class StorageManager
 
 package "ExpressLibrary Storage" #F4F6F6{
@@ -26,14 +26,14 @@ Class JsonAdaptedBook
 }
 
 Class HiddenOutside #FFFFFF
-HiddenOutside ..> StorageInterface
+HiddenOutside ..> Storage
 
-StorageManager .up.|> StorageInterface
+StorageManager .up.|> Storage
 StorageManager -up-> "1" UserPrefsStorage
 StorageManager -up-> "1" ExpressLibraryStorage
 
-StorageInterface -left-|> UserPrefsStorage
-StorageInterface -right-|> ExpressLibraryStorage
+Storage -left-|> UserPrefsStorage
+Storage -right-|> ExpressLibraryStorage
 
 JsonUserPrefsStorage .up.|> UserPrefsStorage
 JsonExpressLibraryStorage .up.|> ExpressLibraryStorage
